@@ -26,12 +26,6 @@ object HttpManager {
                 .writeTimeout(1, TimeUnit.MINUTES)
                 .readTimeout(1, TimeUnit.MINUTES)
                 .addInterceptor(interceptor)
-                .addInterceptor {
-                    val newRequest = it.request().newBuilder()
-                        .addHeader("User-Agent", "Android com.gu_global.customer.app.tw/37.0.19")
-                        .build()
-                    return@addInterceptor it.proceed(newRequest)
-                }
                 .build()
         }
 }
